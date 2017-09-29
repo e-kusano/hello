@@ -1,0 +1,20 @@
+<body>
+<header id="header">
+	<div id="titleBox">
+	<div id="title-contents" class="cf">
+	    <h1>
+			<span class="site-title">週報システム</span> | 株式会社ミライタス
+		</h1>
+		{% if popup != "1"%}
+			<div id="logout-contents" class="cf">{{ include('common/logout.html') }}</div>
+		{% endif %}
+	</div>
+	</div>
+	<div id="header-contents" class="cf">
+		<div id="logo">
+			{% if popup != "1"%}<a href="{{ base_url }}WeeklyReportList">{% endif %}
+				<img alt="株式会社ミライタス" src="{{ base_url }}view/_images/logo.gif">
+			{% if popup != "1"%}</a>{% endif %}
+		</div>
+	</div>
+</header>
