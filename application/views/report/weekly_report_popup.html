@@ -1,0 +1,40 @@
+{{ include('common/header.html')}}
+{{ include('common/body_header.html')}}
+
+<input type="hidden" name="popup" value="1">
+<div id="popup-search">
+	<form action="{{ base_url }}WeeklyReportListPopup/confirm" method="post">
+		<div class="search-list">
+			<h3>検索</h3>
+			<div class="spacer"></div>
+			{{ month_select|raw}}
+		</div>
+		<div class="spacer"></div>
+		<input type="submit" class="btn_search" align="center" value="検索">
+	</form>
+</div>
+
+{% if list|length > 0 %}
+<div id="table-back">
+	<table border="1" class="popup-list">
+		<thead>
+			<tr>
+<!-- 				<td></td> -->
+				<td>氏名</td>
+				<td>提出回数</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in list%}
+				<tr>
+<!-- 					<td></td> -->
+					<td>{{ item.name }}</td>
+					<td>{{ item.count}}回</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endif %}
+
+{{ include('common/footer.html')}}
